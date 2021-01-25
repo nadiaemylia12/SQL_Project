@@ -130,3 +130,12 @@ FROM STATION;
 --Weather Observation Station 19
 SELECT ROUND(SQRT(POW(MIN(LAT_N) - MAX(LAT_N),2) + POW(MIN(LONG_W) - MAX(LONG_W),2)),4)
 FROM STATION;
+
+
+--Weather Observation Station 20
+SET @RowIndex = -1;
+SELECT ROUND(AVG(sub.LAT_N),4)
+FROM (SELECT @RowIndex:=@RowIndex+1 AS RowIndex, LAT_N
+     FROM STATION
+     ORDER BY LAT_N) AS sub
+WHERE sub.RowIndex IN (FLOOR(@RowIndex/2), CEIL(@RowIndex/2));
