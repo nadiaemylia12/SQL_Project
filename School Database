@@ -1,0 +1,131 @@
+--create table student_classes
+CREATE TABLE student_classes (
+class_id INT NOT NULL,
+student_id INT NOT NULL
+);
+
+--insert value into student_classes
+INSERT INTO student_classes (class_id, student_id)
+VALUES (1, 2101),
+		(1, 2102),
+		(1, 2103),
+		(2, 2001),
+		(2, 2002),
+		(2, 2003),
+		(3, 1901),
+		(3, 1902),
+		(3, 1903),
+		(3, 1904);
+
+--select all from student_classes
+SELECT * FROM student_classes;
+
+--create table students
+CREATE TABLE students (
+student_id INT PRIMARY KEY NOT NULL,
+first_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(20),
+date_of_birth DATE NOT NULL,
+year_admission INT NOT NULL
+);
+
+--insert value into students
+INSERT INTO students (student_id, first_name, last_name, date_of_birth, year_admission)
+VALUES (2101, 'Sara', 'Smith','1999-09-01', 2021),
+		(2102, 'Maya', 'Albert','1999-01-03', 2021),
+		(2103, 'Sam', 'Hopkins','1999-05-04', 2021),
+		(2001, 'John', 'A','1998-02-13', 2020),
+		(2002, 'John', 'P','1998-02-03', 2020),
+		(2003, 'Mike', 'Dan','1998-02-22', 2020),
+		(1901, 'Kim', 'Jan','1997-05-27', 2019),
+		(1902, 'Lily', 'Andrew','1997-08-16', 2019),
+		(1903, 'Lee', 'Mark','1997-09-04', 2019),
+		(1904, 'Johnny', 'Suh','1997-12-02', 2019);
+
+--select all from students
+SELECT * FROM students;
+
+--create table classes
+CREATE TABLE classes (
+class_id INT NOT NULL,
+classroom_id VARCHAR(20) NOT NULL,
+subject_id VARCHAR(20) NOT NULL,
+teacher_id VARCHAR(20) NOT NULL,
+period_hours INT NOT NULL
+);
+
+--insert value into classes
+INSERT INTO classes (class_id, classroom_id, subject_id, teacher_id, period_hours)
+VALUES (1, 'A','SCI', 'PE01', 8),
+		(2, 'B','PHY', 'PE03', 10),
+		(3, 'C','CHEM', 'PE02', 10),
+		(1, 'A','BIO', 'PE01', 10),
+		(2, 'B','MATH', 'PE04', 8),
+		(3, 'C','ADM', 'PE05', 9),
+		(1, 'A','ALG', 'PE04', 10),
+		(2, 'B','CALC', 'PE05', 11),
+		(3, 'C','ENG', 'PE06', 12);
+
+--select all from classes
+SELECT * FROM classes;
+
+--create subjects table
+CREATE TABLE subjects (
+subject_id VARCHAR(20) NOT NULL,
+max_capacity INT NOT NULL
+);
+
+--insert value into subjects
+INSERT INTO subjects (subject_id, max_capacity)
+VALUES ('SCI',20),
+		('PHY', 20),
+		('CHEM', 20),
+		('BIO', 20),
+		('MATH', 20),
+		('ADM', 20),
+		('ALG', 20),
+		('CALC', 20),
+		('ENG', 20);
+
+--select all from subjects
+SELECT * FROM subjects;
+
+--create classrooms table
+CREATE TABLE classrooms (
+classroom_id VARCHAR(20) NOT NULL,
+capacity INT NOT NULL,
+room_type VARCHAR(20) NOT NULL
+);
+
+--insert value into classrooms
+INSERT INTO classrooms (classroom_id, capacity, room_type)
+VALUES ('A', 60, 'Lecture'),
+		('B', 30, 'Lab'),
+		('C', 30, 'Digital');
+
+-- select all from classrooms
+SELECT * FROM classrooms;
+
+--create teachers table
+CREATE TABLE teachers (
+teacher_id VARCHAR(20) NOT NULL,
+first_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(20),
+title VARCHAR(20),
+subject_taught VARCHAR(20) NOT NULL
+);
+
+--insert value into teachers table
+INSERT INTO teachers (teacher_id, first_name, last_name, title, subject_taught)
+VALUES ('PE01', 'Mike', 'Dallas', 'Dr', 'SCI'),
+		('PE01', 'Mike', 'Dallas', 'Dr', 'BIO'),
+		('PE03', 'Kim', 'Sam', 'Mr', 'PHY'),
+		('PE02', 'Emily', 'Shin', 'Ms', 'CHEM'),
+		('PE04', 'Sofia', 'Sam', 'Ms', 'MATH'),
+		('PE04', 'Sofia', 'Sam', 'Ms', 'ALG'),
+		('PE05', 'Lia', 'M', 'Dr', 'ADM'),
+		('PE05', 'Lia', 'M', 'Dr', 'CALC'),
+		('PE06', 'Lawrence', 'J', 'Dr', 'ENG');
+		
+--select all from teachers
+SELECT * FROM teachers;
