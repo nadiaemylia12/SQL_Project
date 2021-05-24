@@ -139,3 +139,5 @@ FROM (SELECT @RowIndex:=@RowIndex+1 AS RowIndex, LAT_N
      FROM STATION
      ORDER BY LAT_N) AS sub
 WHERE sub.RowIndex IN (FLOOR(@RowIndex/2), CEIL(@RowIndex/2));
+
+try to PR
